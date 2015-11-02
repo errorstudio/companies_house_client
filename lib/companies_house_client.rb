@@ -42,11 +42,6 @@ module CompaniesHouseClient
         # Request
         c.use Faraday::Request::UrlEncoded
 
-
-
-        # Response
-        c.use Her::Middleware::DefaultParseJSON
-
         # Parse collections
         c.use CompaniesHouseClient::CollectionParser
 

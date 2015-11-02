@@ -10,7 +10,10 @@ module CompaniesHouseClient
   # }
   class CollectionParser < Faraday::Response::Middleware
     def on_complete(env)
-      #todo - we need to parse out the :items hash from this.
+      json = MultiJson.load(env[:body], symbolize_keys: true)
+      env[:body] = {
+        data: json.has_key?(:items) ? json[:items] : json
+      }
     end
   end
 end
