@@ -34,3 +34,14 @@ SSL is a bit of a faff, because you need a [CA bundle for Faraday](https://githu
  
 The configuration setting `ssl_settings` is a hash. You need to pass `ca_path` into it, with the appropriate location for your bundle.
 
+## Use
+```
+c = CompaniesHouseClient::Company.find("company id")
+c #returns a company.
+```
+
+## To do
+
+* Officers
+* Accounts
+
