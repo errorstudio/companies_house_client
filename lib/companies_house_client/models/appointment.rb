@@ -1,6 +1,6 @@
 module CompaniesHouseClient
-  class Officer < Base
+  class Appointment < Base
     belongs_to :company, path: "/company/:id"
-    collection_path "/company/:company_id/officers"
+    collection_path "/company/:company_id/appointments"
   end
 end

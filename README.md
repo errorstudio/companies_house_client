@@ -61,10 +61,25 @@ c = CompaniesHouseClient::Company.find("company number")
 c.officers #returns a collection of Officer objects.
 ```
 
+If you just want a list of officers for a given company, you can save a request to the /company endpoint like this:
+ 
+```
+CompaniesHouseClient::Officer.all(company_id: "company number") #will return a collection directly from the officers endpoint
+```
+
+### Filing History
+You can get a list of the company's filing history entries like this:
+
+```
+c = CompaniesHouseClient::Company.find("company number")
+c.filing_histories #returns a collection of FilingHistory objects - note plural on the relation name
+```
 
 ## To do
 
-* We should be able to get a history of accounts.
+* There are Appointments and Charges endpoints set up, and they're documented in the API docs, but they return a 404 for all companies. No idea why.
+* Some tests would be nice.
+* There an issue with the [Her](https://github.com/remiprev/her) where it expects the child resource to have a reference to a parent, which this API doesn't. So you get `(<unknown path, missing `company_id`>)` in the responses for child objects. There is probably a solution.
 
 # Licence
 This gem is MIT licenced. Have fun!

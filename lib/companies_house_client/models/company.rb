@@ -1,6 +1,10 @@
 module CompaniesHouseClient
   class Company < Base
-    has_many :officers
+    has_one :registered_office_address, path: "/registered-office-address"
+    has_many :officers, path: "/officers"
+    has_many :filing_histories, path: "/filing-history"
+    has_many :appointments, path: "/appointments"
+    has_many :charges, path: "/charges"
     collection_path "/company"
     primary_key :company_number
 

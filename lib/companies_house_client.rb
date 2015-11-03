@@ -44,6 +44,7 @@ module CompaniesHouseClient
 
         # Parse collections
         c.use CompaniesHouseClient::CollectionParser
+        # c.use Her::Middleware::DefaultParseJSON
 
         # Adapter
         c.use Faraday::Adapter::NetHttp

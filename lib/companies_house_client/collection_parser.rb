@@ -12,7 +12,9 @@ module CompaniesHouseClient
     def on_complete(env)
       json = MultiJson.load(env[:body], symbolize_keys: true)
       env[:body] = {
-        data: json.has_key?(:items) ? json[:items] : json
+        data: json.has_key?(:items) ? json[:items] : json,
+        errors: json[:errors],
+        metadata: json.except(:items)
       }
     end
   end
