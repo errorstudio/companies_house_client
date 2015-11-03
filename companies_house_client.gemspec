@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["ed@errorstudio.co.uk"]
   spec.summary       = %q{A REST client for the UK Companies House API}
   spec.description   = %q{A REST client for the UK Companies House API, including authentication}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/errorstudio/companies_house_client"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

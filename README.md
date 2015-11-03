@@ -35,13 +35,36 @@ SSL is a bit of a faff, because you need a [CA bundle for Faraday](https://githu
 The configuration setting `ssl_settings` is a hash. You need to pass `ca_path` into it, with the appropriate location for your bundle.
 
 ## Use
+
+### Getting a company by Company Number
+Note that the leading zero in a company number is important so you have to pass `find()` a string.
 ```
-c = CompaniesHouseClient::Company.find("company id")
+c = CompaniesHouseClient::Company.find("company number")
 c #returns a company.
 ```
 
+### Searching for a company by name
+You can search for a company like this:
+
+```
+companies = CompaniesHouseClient::Company.search("your search", per_page: 10, page: 2)
+companies #returns a collection of Companies which match your search.
+```
+
+`per_page` and `page` are optional.
+
+### Company Officers
+Companies have many officers. You can retrieve them like this:
+
+```
+c = CompaniesHouseClient::Company.find("company number")
+c.officers #returns a collection of Officer objects.
+```
+
+
 ## To do
 
-* Officers
-* Accounts
+* We should be able to get a history of accounts.
 
+# Licence
+This gem is MIT licenced. Have fun!
