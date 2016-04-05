@@ -5,6 +5,8 @@ require_rel "."
 
 module CompaniesHouseClient
   API_URL = "https://api.companieshouse.gov.uk"
+  DOCUMENT_URL = "https://beta.companieshouse.gov.uk"
+
   class << self
 
     #access the configuration class
